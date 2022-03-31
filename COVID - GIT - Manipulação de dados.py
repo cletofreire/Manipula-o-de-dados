@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
 
 # Importando as bibliotecas necessárias 
 import pandas as pd
@@ -10,22 +8,13 @@ import missingno
 import numpy as np
 
 
-# In[2]:
-
-
 # Abrindo o arquivo
 file = 'country_vaccinations.csv'
 df = pd.read_csv (file)
 
 
-# In[3]:
-
-
 # Lendo as primeiras 10  linhas da tabela
 df.head(10)
-
-
-# In[4]:
 
 
 # Lendo os últimas 10  linhas da tabela
@@ -33,21 +22,12 @@ df.head(10)
 df.tail(10)
 
 
-# In[5]:
-
-
 #Observando se há valores faltantes de caráter observacional, onde há o menor N amostral por coluna observa-se a ausência de amostras
 df.info()
 
 
-# In[6]:
-
-
 # De maneira objetiva esse comando nos mostra as colunas que há valores faltantes , sendo  FALSE para as COLUNAS que NÃO tem valores faltantes e TRUE para os que TEM valores faltantes
 df.isna().any()
-
-
-# In[7]:
 
 
 # Observando por meio de  de uma interface gráfica de maneira precisa onde  há os valores faltantes
@@ -55,30 +35,19 @@ df.isna().any()
 missingno.matrix(df)
 
 
-# In[15]:
-
-
 # É um gráfico de barras ilustra os valores totais de todas as colunas
 missingno.bar(df)
-
-
-# In[8]:
 
 
 # Aqui ele vai me retornar todas as linhas que possui pelo menos um valor faltante (isna().any)
 df[df.isna().any(axis = 1)] 
 
 
-# In[18]:
-
 
 # Me retorna linhas  que não tem nenhum valor faltante, observe que agora = notna(). all
 # em suma elimina os n/as
 
 df[df.notna().all(axis = 1)]  
-
-
-# In[9]:
 
 
 # Aqui com o comando reset_index, eu reseto os valores naturais da ordem do data frame e mantenho apenas as amostras que estão presentes em todas as linhas e colunas
